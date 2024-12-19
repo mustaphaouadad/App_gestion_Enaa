@@ -48,7 +48,7 @@ public class Application {
                     break;
                 case 2:
                     System.out.println(" Afficher tous les Apprenants ");
-                    ap.AfficherApprenat();
+                    ap.AfficherApprenant();
                     break;
                 case 3:
                     System.out.println(" Modifier un Apprenant ");
