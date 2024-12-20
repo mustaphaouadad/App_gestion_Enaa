@@ -51,7 +51,8 @@ public class Apprenant extends Personne{
     }
 
     Scanner scanner=new Scanner(System.in);
-    public void AjouterApprenant(){
+    @Override
+    public void Ajouter(){
 
 
 
@@ -86,6 +87,52 @@ public class Apprenant extends Personne{
             apprenants.add(apprenant);
 //
     }
+
+    @Override
+    public void Supprimer() {
+        System.out.println("entrer id de l/'apprenant a supprimer: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        Apprenant app = null;
+        for (Apprenant apprenant : apprenants) {
+            if (apprenant.getId() == id) {
+                app 
+            }else
+                System.out.println("eroor");
+        }
+
+    }
+
+    @Override
+    public void Modifier() {
+        System.out.println("entrer id de l/'apprenant a modifier: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        for (Apprenant apprenant : apprenants) {
+            if (apprenant.getId() == id) {
+                System.out.println("entrer le nouveau nom: ");
+                String nom = scanner.nextLine();
+                apprenant.setNom(nom);
+                System.out.println("entrer le nouveau prenom: ");
+                String prenom = scanner.nextLine();
+                apprenant.setPrenom(prenom);
+                System.out.println("entrer le nouveau email: ");
+                String email = scanner.nextLine();
+                apprenant.setEmail(email);
+                System.out.printf("enter la nouveau note de l/'apprenant: ");
+                double notes = scanner.nextDouble();
+                ArrayList<Double> noteList = new ArrayList<>();
+                noteList.add(notes);
+                apprenant.setNote(noteList);
+            }else
+                System.out.println("eroor");
+
+        }
+
+
+
+    }
+
 //    public Classe Recherche(String nomClass) {
 //        Classe classe1=new Classe();
 //        for (Classe c : classes){
@@ -93,25 +140,17 @@ public class Apprenant extends Personne{
 //        }
 //        return null;
 //    }
-
-    public void AfficherApprenant() {
+@Override
+    public void Afficher() {
         if (apprenants == null || apprenants.isEmpty()) {
             System.out.println("Aucun apprenant n'est présent dans la liste.");
         } else {
             for (Apprenant apprenant : apprenants) {
-                System.out.println("id: "+apprenant.getId()+"le nom: "+apprenant.getNom()+" le prenom: "+apprenant.getPrenom()
+                System.out.println("id: "+apprenant.getId()+" le nom: "+apprenant.getNom()+" le prenom: "+apprenant.getPrenom()
                         +" le email: "+apprenant.getEmail()+" le note: "+apprenant.getNote());
             }
         }
     }
-//    public void AfficherApprenant(){
-//
-//
-//       System.out.println(getId());
-//        System.out.println(getNom());
-//        System.out.println(getPrenom());
-//        System.out.println(getEmail());
-//        System.out.println(getNote());
-//
-//    }
+
+
 }

@@ -47,6 +47,11 @@ public abstract class Personne {
         this.prenom = prenom;
         this.email = email;
     }
+    abstract public void Ajouter();
+    abstract public void Supprimer();
+    abstract public void Modifier();
+    abstract public void Afficher();
+
 
    @Override
    public String toString() {

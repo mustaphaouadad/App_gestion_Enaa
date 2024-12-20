@@ -16,6 +16,7 @@ public class Formateur extends Personne{
     public Formateur(){
 
     }
+//getter and setter
 
     public String getSpecialite() {
         return specialite;
@@ -41,9 +42,13 @@ public class Formateur extends Personne{
         this.classe = classe;
     }
 
-    public void AjouterFormateur(){
-
+    @Override
+    public void Ajouter() {
         Formateur formateur = new Formateur();
+        System.out.printf("enter id de l/'apprenant: ");
+        int id = scanner.nextInt();
+        formateur.setId(id);
+        scanner.nextLine();
         System.out.printf("enter nom de l/'apprenant: ");
         String name = scanner.nextLine();
         formateur.setNom(name);
@@ -53,16 +58,15 @@ public class Formateur extends Personne{
         System.out.printf("enter email de l/'apprenant: ");
         String email = scanner.nextLine();
         formateur.setEmail(email);
-        System.out.printf("enter id de l/'apprenant: ");
-        int id = scanner.nextInt();
-        formateur.setId(id);
         System.out.printf("enter spécialité de l/'apprenant: ");
         String specialite = scanner.nextLine();
-        System.out.println("entrer salaire: ");
+        formateur.setSpecialite(specialite);
+        System.out.printf("entrer salaire: ");
         double salaire = scanner.nextDouble();
+        formateur.setSalaire(salaire);
 
-//            this.note.add(notes);
-        scanner.nextLine();
+ //            this.note.add(notes);
+           scanner.nextLine();
 //            System.out.println("entrer le nom de la classse: ");
 //            String nomClasse = scanner.nextLine();
 //            Classe classe = Recherche(nomClasse);
@@ -71,7 +75,56 @@ public class Formateur extends Personne{
 //            }
 
         //(id,name,prenom,email,note);
-        formateurs.add(formateur);
-//
+       formateurs.add(formateur);
+
     }
-}
+
+    @Override
+    public void Supprimer() {
+
+    }
+
+    @Override
+    public void Modifier() {
+        System.out.println("Entrer id de le formateur a modifier: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        for (Formateur formateur : formateurs) {
+            if (formateur.getId() == id) {
+                System.out.println("entrer le nouveau nom: ");
+                String nom = scanner.nextLine();
+                formateur.setNom(nom);
+                System.out.println("entrer le nouveau prenom: ");
+                String prenom = scanner.nextLine();
+                System.out.println("entrer le nouveau email: ");
+                String email = scanner.nextLine();
+                formateur.setEmail(email);
+                System.out.printf("enter la nouveau specialite de l/'apprenant: ");
+                String specialite = scanner.nextLine();
+                formateur.setSpecialite(specialite);
+                System.out.printf("enter la nouveau salair de l/'apprenant: ");
+                double salaire = scanner.nextDouble();
+                formateur.setSalaire(salaire);
+            }else
+                System.out.println("eroor");
+        }
+
+    }
+
+    @Override
+    public void Afficher() {
+        if (formateurs == null || formateurs.isEmpty()) {
+            System.out.println("Aucun apprenant n'est présent dans la liste.");
+        } else {
+            for (Formateur formateur : formateurs) {
+                System.out.println("id: "+formateur.getId()+" le nom: "+formateur.getNom()+" le prenom: "+formateur.getPrenom()
+                        +" le email: "+formateur.getEmail()+" la spécialité: "+formateur.getSpecialite()+" le salaire: "+formateur.getSalaire());
+            }
+        }
+    }
+
+    }
+
+
+
+

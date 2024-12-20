@@ -44,17 +44,19 @@ public class Application {
             switch (choix){
                 case 1:
                     System.out.println(" Ajouter un Apprenant ");
-                    ap.AjouterApprenant();
+                    ap.Ajouter();
                     break;
                 case 2:
                     System.out.println(" Afficher tous les Apprenants ");
-                    ap.AfficherApprenant();
+                    ap.Afficher();
                     break;
                 case 3:
                     System.out.println(" Modifier un Apprenant ");
+                    ap.Modifier();
                     break;
                 case 4:
                     System.out.println(" Supprimer un Apprenant ");
+                    ap.Supprimer();
                     break;
                 case 5:
                     System.out.println(" Retour au menu principal...");
@@ -81,13 +83,15 @@ public class Application {
             switch (choix){
                 case 1:
                     System.out.println(" Ajouter un Formateur ");
-                    form.AjouterFormateur();
+                    form.Ajouter();
                     break;
                 case 2:
                     System.out.println(" Afficher tous les Formateurs ");
+                    form.Afficher();
                     break;
                 case 3:
                     System.out.println(" Modifier un Formateur ");
+                    form.Modifier();
                     break;
                 case 4:
                     System.out.println(" Supprimer un Formateur ");
