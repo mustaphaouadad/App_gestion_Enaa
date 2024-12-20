@@ -95,6 +95,7 @@ public class Application {
                     break;
                 case 4:
                     System.out.println(" Supprimer un Formateur ");
+                    form.Supprimer();
                     break;
                 case 5:
                     System.out.println(" Retour au menu principal...");

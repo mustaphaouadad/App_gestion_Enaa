@@ -96,12 +96,16 @@ public class Apprenant extends Personne{
         Apprenant app = null;
         for (Apprenant apprenant : apprenants) {
             if (apprenant.getId() == id) {
-                app 
-            }else
-                System.out.println("eroor");
+               app=apprenant;
+            }
         }
-
+        if (app!=null){
+            apprenants.remove(app);
+        }else
+            System.out.println("eroor");
     }
+
+
 
     @Override
     public void Modifier() {

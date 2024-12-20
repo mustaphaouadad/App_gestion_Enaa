@@ -81,7 +81,20 @@ public class Formateur extends Personne{
 
     @Override
     public void Supprimer() {
+        System.out.println("entrer id de Formateur a supprimer: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        Formateur formateur = null;
+        for (Formateur formateurs : formateurs) {
+            if (formateurs.getId() == id) {
+                formateur = formateurs;
+            }
+        }
+        if (formateur!=null){
+            formateurs.remove(formateur);
 
+        }else
+            System.out.println("eroor");
     }
 
     @Override
