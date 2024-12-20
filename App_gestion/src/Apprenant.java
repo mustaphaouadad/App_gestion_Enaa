@@ -4,15 +4,16 @@ import java.util.Scanner;
 
 public class Apprenant extends Personne{
     private Classe classe ;
-   private ArrayList<Double> note ;
-    //ArrayList<Double> note=new ArrayList<Double>();
+    //private double note = new ArrayList<>();
+    ArrayList<Double> note=new ArrayList<Double>();
     ArrayList<Apprenant>apprenants = new ArrayList<Apprenant>();
      ArrayList<Classe>classes=new ArrayList<Classe>();
-    public Apprenant(String nom, String prenom, String email,int id,ArrayList<Double> note) {
-        super(nom, prenom, email,id);
-        this.classe=classe;
-       this.note=new ArrayList<>(note);
-    }
+//    public Apprenant(String nom, String prenom, String email,int id,double note) {
+//        super(nom, prenom, email,id);
+//        //this.classe=classe;
+//        this.note = new ArrayList<>(); // Initialiser une liste vide
+//        this.note.add(note);
+//    }
     public Apprenant(){
         super();
     }
@@ -33,9 +34,10 @@ public class Apprenant extends Personne{
         this.note = note;
     }
 
-    public Apprenant(int id, String nom, String prenom, String email, ArrayList<Double> note) {
+    public Apprenant(int id, String nom, String prenom, String email, double note) {
         super(id, nom, prenom, email);
-        this.note = note;
+        this.note = new ArrayList<>(); // Initialiser une liste vide
+        this.note.add(note); // Ajouter la note passée au constructeur
     }
 
     @Override
@@ -50,7 +52,7 @@ public class Apprenant extends Personne{
 
     Scanner scanner=new Scanner(System.in);
     public void AjouterApprenant(){
-        try {
+
 
 
             Apprenant apprenant = new Apprenant();
@@ -68,37 +70,37 @@ public class Apprenant extends Personne{
             apprenant.setId(id);
             System.out.printf("enter note de l/'apprenant: ");
             double notes = scanner.nextDouble();
-            apprenant.setNote(note);
-            note.add(notes);
+            ArrayList<Double> noteList = new ArrayList<>();
+            noteList.add(notes);
+            apprenant.setNote(noteList);
+//            this.note.add(notes);
             scanner.nextLine();
-            System.out.println("entrer le nom de la classse: ");
-            String nomClasse = scanner.nextLine();
-            Classe classe = Recherche(nomClasse);
-            if (classe == null) {
-                System.out.println("classe n'existe pas!!");
-            }
+//            System.out.println("entrer le nom de la classse: ");
+//            String nomClasse = scanner.nextLine();
+//            Classe classe = Recherche(nomClasse);
+//            if (classe == null) {
+//                System.out.println("classe n'existe pas!!");
+//            }
 
             //(id,name,prenom,email,note);
             apprenants.add(apprenant);
-        }catch (InputMismatchException e){
-            System.out.println("Ereur ");
-            scanner.nextLine();
-        }
+//
     }
-    public Classe Recherche(String nomClass) {
-        Classe classe1=new Classe();
-        for (Classe c : classes){
-            if(classe1.getNom().equals(nomClass))return c;
-        }
-        return null;
-    }
+//    public Classe Recherche(String nomClass) {
+//        Classe classe1=new Classe();
+//        for (Classe c : classes){
+//            if(classe1.getNom().equals(nomClass))return c;
+//        }
+//        return null;
+//    }
 
     public void AfficherApprenant() {
         if (apprenants == null || apprenants.isEmpty()) {
             System.out.println("Aucun apprenant n'est présent dans la liste.");
         } else {
-            for (int i = 0; i < apprenants.size(); i++) {
-                System.out.println((i + 1) + ". " + apprenants.get(i));
+            for (Apprenant apprenant : apprenants) {
+                System.out.println("id: "+apprenant.getId()+"le nom: "+apprenant.getNom()+" le prenom: "+apprenant.getPrenom()
+                        +" le email: "+apprenant.getEmail()+" le note: "+apprenant.getNote());
             }
         }
     }

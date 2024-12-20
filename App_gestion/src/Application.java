@@ -67,6 +67,7 @@ public class Application {
             }while (choix!=5);
         }
         public static void gererFormateur(){
+        Formateur form =new Formateur();
         Scanner sc =new Scanner(System.in);
         int choix;
         do {
@@ -80,6 +81,7 @@ public class Application {
             switch (choix){
                 case 1:
                     System.out.println(" Ajouter un Formateur ");
+                    form.AjouterFormateur();
                     break;
                 case 2:
                     System.out.println(" Afficher tous les Formateurs ");
