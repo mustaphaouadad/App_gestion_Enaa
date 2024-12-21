@@ -131,6 +131,7 @@ public class Application {
                     break;
                 case 3:
                     System.out.println(" Modifier une Classe ");
+                    cl.ModifierClasse();
                     break;
                 case 4:
                     System.out.println("  Supprimer une Classe");

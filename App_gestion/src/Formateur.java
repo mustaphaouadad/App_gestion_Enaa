@@ -7,6 +7,7 @@ public class Formateur extends Personne{
     private double salaire;
     private Classe classe;
     public ArrayList<Formateur>formateurs = new ArrayList<Formateur>();
+    public ArrayList<Classe>classes=new ArrayList<>();
     public Formateur(String nom, String prenom, String email, int id, String specialite, double salaire) {
         super(nom, prenom, email,id);
         this.specialite=specialite;
@@ -135,6 +136,28 @@ public class Formateur extends Personne{
             for (Formateur formateur : formateurs) {
                 System.out.println("id: "+formateur.getId()+" le nom: "+formateur.getNom()+" le prenom: "+formateur.getPrenom()
                         +" le email: "+formateur.getEmail()+" la spécialité: "+formateur.getSpecialite()+" le salaire: "+formateur.getSalaire());
+            }
+        }
+    }
+    @Override
+    public void Associer() {
+        System.out.println("entrer le nom de la classe: ");
+        String nom =scanner.nextLine();
+        for (Classe classe : classes){
+            if(classe.getNom().equals(nom)){
+                System.out.println("entrer id du formateur: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                Formateur formateur = null;
+                for (Formateur formateurs : formateurs) {
+                    if (formateurs.getId() == id) {
+                        formateur = formateurs;
+                    }
+                }
+                if (formateur!=null){
+                    classes.add(classe);
+                    System.out.println("formateur ajouter avec succes");
+                }
             }
         }
     }

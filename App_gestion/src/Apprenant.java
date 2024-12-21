@@ -158,5 +158,30 @@ public class Apprenant extends Personne{
         }
     }
 
+    @Override
+    public void Associer(){
+        System.out.println("entrer le nom de la classe: ");
+        String nom = scanner.nextLine();
+        for (Classe classe : classes){
+            if(classe.getNom().equals(scanner.nextLine())){
+                System.out.println("entre id de l/'apprenant: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                Apprenant apprenant = null;
+                for (Apprenant apprenants : apprenants) {
+                    if (apprenants.getId() == id) {
+                        apprenant = apprenants;
+                    }
+                }
+                if (apprenant!=null){
+                    classe.getApprenants().add(apprenant);
+                    System.out.println("apprenant ajouter avec succes");
+                }else System.out.println("apprenant n'existe pas!!");
+                break;
+            }
+            else System.out.println("classe n'existe pas!!");
+        }
+    }
+
 
 }

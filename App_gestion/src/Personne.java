@@ -51,6 +51,7 @@ public abstract class Personne {
     abstract public void Supprimer();
     abstract public void Modifier();
     abstract public void Afficher();
+    abstract public void Associer();
 
 
    @Override
