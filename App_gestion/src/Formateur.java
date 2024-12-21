@@ -45,23 +45,23 @@ public class Formateur extends Personne{
     @Override
     public void Ajouter() {
         Formateur formateur = new Formateur();
-        System.out.printf("enter id de l/'apprenant: ");
+        System.out.printf("enter id de fomrateur: ");
         int id = scanner.nextInt();
         formateur.setId(id);
         scanner.nextLine();
-        System.out.printf("enter nom de l/'apprenant: ");
+        System.out.printf("enter nom de fomrateur: ");
         String name = scanner.nextLine();
         formateur.setNom(name);
-        System.out.printf("enter prenom de l/'apprenant: ");
+        System.out.printf("enter prenom de fomrateur: ");
         String prenom = scanner.nextLine();
         formateur.setPrenom(prenom);
-        System.out.printf("enter email de l/'apprenant: ");
+        System.out.printf("enter email de fomrateur: ");
         String email = scanner.nextLine();
         formateur.setEmail(email);
-        System.out.printf("enter spécialité de l/'apprenant: ");
+        System.out.printf("enter spécialité de fomrateur: ");
         String specialite = scanner.nextLine();
         formateur.setSpecialite(specialite);
-        System.out.printf("entrer salaire: ");
+        System.out.printf("entrer salaire de fomrateur: ");
         double salaire = scanner.nextDouble();
         formateur.setSalaire(salaire);
 
@@ -76,6 +76,7 @@ public class Formateur extends Personne{
 
         //(id,name,prenom,email,note);
        formateurs.add(formateur);
+        System.out.println("formateur ajouter avec succes");
 
     }
 
@@ -92,6 +93,7 @@ public class Formateur extends Personne{
         }
         if (formateur!=null){
             formateurs.remove(formateur);
+            System.out.println("formateur supprimer avec succes");
 
         }else
             System.out.println("eroor");
@@ -118,6 +120,7 @@ public class Formateur extends Personne{
                 System.out.printf("enter la nouveau salair de l/'apprenant: ");
                 double salaire = scanner.nextDouble();
                 formateur.setSalaire(salaire);
+                System.out.println("formateur modifier avec succes");
             }else
                 System.out.println("eroor");
         }

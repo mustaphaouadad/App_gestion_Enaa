@@ -53,10 +53,11 @@ public class Apprenant extends Personne{
     Scanner scanner=new Scanner(System.in);
     @Override
     public void Ajouter(){
-
-
-
-            Apprenant apprenant = new Apprenant();
+        Apprenant apprenant = new Apprenant();
+        System.out.printf("enter id de l/'apprenant: ");
+        int id = scanner.nextInt();
+        apprenant.setId(id);
+        scanner.nextLine();
             System.out.printf("enter nom de l/'apprenant: ");
             String name = scanner.nextLine();
             apprenant.setNom(name);
@@ -66,9 +67,7 @@ public class Apprenant extends Personne{
             System.out.printf("enter email de l/'apprenant: ");
             String email = scanner.nextLine();
             apprenant.setEmail(email);
-            System.out.printf("enter id de l/'apprenant: ");
-            int id = scanner.nextInt();
-            apprenant.setId(id);
+
             System.out.printf("enter note de l/'apprenant: ");
             double notes = scanner.nextDouble();
             ArrayList<Double> noteList = new ArrayList<>();
@@ -85,6 +84,7 @@ public class Apprenant extends Personne{
 
             //(id,name,prenom,email,note);
             apprenants.add(apprenant);
+        System.out.println("apprenant ajouter avec succes");
 //
     }
 
@@ -101,6 +101,7 @@ public class Apprenant extends Personne{
         }
         if (app!=null){
             apprenants.remove(app);
+            System.out.println("apprenant supprimer avec succes");
         }else
             System.out.println("eroor");
     }
@@ -128,6 +129,7 @@ public class Apprenant extends Personne{
                 ArrayList<Double> noteList = new ArrayList<>();
                 noteList.add(notes);
                 apprenant.setNote(noteList);
+                System.out.println("apprenant modifier avec succes");
             }else
                 System.out.println("eroor");
 

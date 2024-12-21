@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        Application app = new Application();
         Scanner sc = new Scanner(System.in);
         int choix;
         do {
@@ -13,13 +14,13 @@ public class Application {
             choix =sc.nextInt();
             switch (choix){
                 case 1:
-                    gererApprenant();
+                    app.gererApprenant();
                     break;
                 case 2:
-                    gererFormateur();
+                    app.gererFormateur();
                     break;
                 case 3:
-                    gererClasse();
+                    app.gererClasse();
                     break;
                 case 4:
                     System.out.println("Quiter l'application...");
@@ -29,7 +30,8 @@ public class Application {
             }
         }while (choix !=4);
     }
-    public static void gererApprenant(){
+
+    public  void gererApprenant(){
         Apprenant ap =new Apprenant();
         Scanner sc =new Scanner(System.in);
         int choix;
@@ -66,9 +68,9 @@ public class Application {
                     System.out.println(" Choix invalide ! Réessayez.");
             }
 
-            }while (choix!=5);
-        }
-        public static void gererFormateur(){
+        }while (choix!=5);
+    }
+    public  void gererFormateur(){
         Formateur form =new Formateur();
         Scanner sc =new Scanner(System.in);
         int choix;
@@ -105,8 +107,9 @@ public class Application {
                     System.out.println(" Choix invalide ! Réessayez.");
             }
         }while (choix !=5);
-        }
-        public static void gererClasse(){
+    }
+    public  void gererClasse(){
+        Classe cl =new Classe();
         Scanner sc=new Scanner(System.in);
         int choix;
         do {
@@ -120,9 +123,11 @@ public class Application {
             switch (choix){
                 case 1:
                     System.out.println(" Créer une Classe  ");
+                    cl.CreerClasse();
                     break;
                 case 2:
                     System.out.println(" Afficher toutes les Classes");
+                    cl.AfficherClasse();
                     break;
                 case 3:
                     System.out.println(" Modifier une Classe ");
@@ -138,7 +143,7 @@ public class Application {
                     System.out.println(" Choix invalide ! Réessayez.");
             }
         }while (choix !=5);
-        }
+    }
 
     }
 
